@@ -29,7 +29,7 @@ namespace ConwayGameOfLife.Business.Managers
             }
 
             string newState = SerializeGrid(newGrid);
-            SetupBoard(newState);
+            SetupBoard(board, newState);
 
         }
 
