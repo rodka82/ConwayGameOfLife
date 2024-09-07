@@ -1,0 +1,17 @@
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Service\bin\Debug\net7.0\ConwayGameOfLife.Business.deps.json
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Service\bin\Debug\net7.0\ConwayGameOfLife.Business.dll
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Service\bin\Debug\net7.0\ConwayGameOfLife.Business.pdb
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Service\bin\Debug\net7.0\ConwayGameOfLife.Domain.dll
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Service\bin\Debug\net7.0\ConwayGameOfLife.Infra.Data.dll
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Service\bin\Debug\net7.0\ConwayGameOfLife.Infra.Data.pdb
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Service\bin\Debug\net7.0\ConwayGameOfLife.Domain.pdb
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Service\obj\Debug\net7.0\ConwayGameOfLife.Business.csproj.AssemblyReference.cache
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Service\obj\Debug\net7.0\ConwayGameOfLife.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Service\obj\Debug\net7.0\ConwayGameOfLife.Business.AssemblyInfoInputs.cache
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Service\obj\Debug\net7.0\ConwayGameOfLife.Business.AssemblyInfo.cs
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Service\obj\Debug\net7.0\ConwayGameOfLife.Business.csproj.CoreCompileInputs.cache
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Service\obj\Debug\net7.0\ConwayGameOfLife.Business.csproj.CopyComplete
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Service\obj\Debug\net7.0\ConwayGameOfLife.Business.dll
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Service\obj\Debug\net7.0\refint\ConwayGameOfLife.Business.dll
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Service\obj\Debug\net7.0\ConwayGameOfLife.Business.pdb
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Service\obj\Debug\net7.0\ref\ConwayGameOfLife.Business.dll
