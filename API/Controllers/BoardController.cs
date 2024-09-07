@@ -1,4 +1,5 @@
-﻿using ConwayGameOfLife.API.Binders;
+﻿using AutoMapper;
+using ConwayGameOfLife.API.Binders;
 using ConwayGameOfLife.API.Dtos;
 using ConwayGameOfLife.Business.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -11,9 +12,11 @@ namespace ConwayGameOfLife.API.Controllers
     public class BoardController : ControllerBase
     {
         private readonly IBoardService _boardService;
+        private readonly IMapper _mapper;
 
-        public BoardController(IBoardService boardService) { 
+        public BoardController(IBoardService boardService, IMapper mapper) { 
             _boardService = boardService;
+            _mapper = mapper;
         }
 
         [HttpPost]
@@ -23,7 +26,7 @@ namespace ConwayGameOfLife.API.Controllers
                 return BadRequest("Initial state cannot be null or empty.");
 
             var boardId = await _boardService.AddBoardAsync(initialState);
-            var boardCreatedDto = new BoardCreatedDto { BoardId = boardId };
+            var boardCreatedDto = _mapper.Map<BoardCreatedDto>(boardId);
 
             return Created(string.Empty, boardCreatedDto);
         }
@@ -35,7 +38,7 @@ namespace ConwayGameOfLife.API.Controllers
             if (nextState == null)
                 return NotFound("Board not found.");
 
-            var boardDto = new BoardDto { BoardState = nextState };
+            var boardDto = _mapper.Map<BoardDto>(nextState);
 
             return Ok(boardDto);
         }
@@ -47,7 +50,7 @@ namespace ConwayGameOfLife.API.Controllers
             if (state == null)
                 return NotFound("Board not found or invalid steps.");
 
-            var boardDto = new BoardDto { BoardState = state };
+            var boardDto = _mapper.Map<BoardDto>(state);
 
             return Ok(boardDto);
         }
@@ -56,7 +59,7 @@ namespace ConwayGameOfLife.API.Controllers
         public async Task<IActionResult> GetFinalState(int boardId, int xSteps)
         {
             var finalState = await _boardService.GetFinalStateAsync(boardId, xSteps);
-            var boardDto = new BoardDto { BoardState = finalState };
+            var boardDto = _mapper.Map<BoardDto>(finalState);
 
             return Ok(boardDto);
         }
