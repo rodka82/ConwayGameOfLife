@@ -1,9 +1,12 @@
-﻿using ConwayGameOfLife.Business.Interfaces;
+﻿using ConwayGameOfLife.API.Binders;
+using ConwayGameOfLife.API.Dtos;
+using ConwayGameOfLife.Business.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ConwayGameOfLife.API.Controllers
 {
     [ApiController]
+    [Route("api/boards")]
     [Produces("application/json")]
     public class BoardController : ControllerBase
     {
@@ -13,35 +16,49 @@ namespace ConwayGameOfLife.API.Controllers
             _boardService = boardService;
         }
 
-        [HttpPost("api/board")]
-        public async Task<IActionResult> CreateBoard([FromBody] string initialState)
+        [HttpPost]
+        public async Task<ActionResult<BoardCreatedDto>> CreateBoard([ModelBinder(BinderType = typeof(InitialStateModelBinder))] string initialState)
         {
+            if (string.IsNullOrEmpty(initialState))
+                return BadRequest("Initial state cannot be null or empty.");
+
             var boardId = await _boardService.AddBoardAsync(initialState);
-            return Ok(new { BoardId = boardId });
+            var boardCreatedDto = new BoardCreatedDto { BoardId = boardId };
+
+            return Created(string.Empty, boardCreatedDto);
         }
 
-        [HttpGet("api/board/{boardId}/next")]
+        [HttpGet("{boardId}/next")]
         public async Task<IActionResult> GetNextState(int boardId)
         {
             var nextState = await _boardService.CalculateNextStateAsync(boardId);
-            return Ok(new { NextState = nextState });
+            if (nextState == null)
+                return NotFound("Board not found.");
+
+            var boardDto = new BoardDto { BoardState = nextState };
+
+            return Ok(boardDto);
         }
 
-        [HttpGet("api/board/{boardId}/steps/{xSteps}")]
+        [HttpGet("{boardId}/steps/{xSteps}")]
         public async Task<IActionResult> GetXStatesAway(int boardId, int xSteps)
         {
             var state = await _boardService.GetStateXStepsAwayAsync(boardId, xSteps);
-            return Ok(new { NextState = state });
+            if (state == null)
+                return NotFound("Board not found or invalid steps.");
+
+            var boardDto = new BoardDto { BoardState = state };
+
+            return Ok(boardDto);
         }
 
-        [HttpGet("api/board/{boardId}/final/{xSteps}")]
+        [HttpGet("{boardId}/final/{xSteps}")]
         public async Task<IActionResult> GetFinalState(int boardId, int xSteps)
         {
             var finalState = await _boardService.GetFinalStateAsync(boardId, xSteps);
-           //if (finalState.IsStable)
-                return Ok(finalState);
-            //else
-           //     return BadRequest("Board didn't stabilize after maximum attempts.");
+            var boardDto = new BoardDto { BoardState = finalState };
+
+            return Ok(boardDto);
         }
     }
 }
