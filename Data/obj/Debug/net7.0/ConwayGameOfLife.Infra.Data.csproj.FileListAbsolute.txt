@@ -1,0 +1,17 @@
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Data\bin\Debug\net7.0\ConwayGameOfLife.Infra.Data.deps.json
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Data\bin\Debug\net7.0\ConwayGameOfLife.Infra.Data.runtimeconfig.json
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Data\bin\Debug\net7.0\ConwayGameOfLife.Infra.Data.dll
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Data\bin\Debug\net7.0\ConwayGameOfLife.Infra.Data.pdb
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Data\bin\Debug\net7.0\ConwayGameOfLife.Domain.dll
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Data\bin\Debug\net7.0\ConwayGameOfLife.Domain.pdb
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Data\obj\Debug\net7.0\ConwayGameOfLife.Infra.Data.csproj.AssemblyReference.cache
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Data\obj\Debug\net7.0\ConwayGameOfLife.Infra.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Data\obj\Debug\net7.0\ConwayGameOfLife.Infra.Data.AssemblyInfoInputs.cache
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Data\obj\Debug\net7.0\ConwayGameOfLife.Infra.Data.AssemblyInfo.cs
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Data\obj\Debug\net7.0\ConwayGameOfLife.Infra.Data.csproj.CoreCompileInputs.cache
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Data\obj\Debug\net7.0\ConwayGameOfLife.Infra.Data.csproj.CopyComplete
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Data\obj\Debug\net7.0\ConwayGameOfLife.Infra.Data.dll
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Data\obj\Debug\net7.0\refint\ConwayGameOfLife.Infra.Data.dll
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Data\obj\Debug\net7.0\ConwayGameOfLife.Infra.Data.pdb
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Data\obj\Debug\net7.0\ConwayGameOfLife.Infra.Data.genruntimeconfig.cache
+C:\Users\rduclerc\source\repos\ConwayGameOfLife\Data\obj\Debug\net7.0\ref\ConwayGameOfLife.Infra.Data.dll
