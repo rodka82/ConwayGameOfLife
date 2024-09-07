@@ -58,7 +58,7 @@ namespace ConwayGameOfLife.API.Controllers
         [HttpGet("{boardId}/final/{xSteps}")]
         public async Task<IActionResult> GetFinalState(int boardId, int xSteps)
         {
-            var finalState = await _boardService.GetFinalStateAsync(boardId, xSteps);
+            var finalState = await _boardService.CalculateFinalStateAsync(boardId, xSteps);
             var boardDto = _mapper.Map<BoardDto>(finalState);
 
             return Ok(boardDto);

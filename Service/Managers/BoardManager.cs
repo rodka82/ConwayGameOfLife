@@ -7,11 +7,11 @@ namespace ConwayGameOfLife.Business.Managers
     public class BoardManager : IBoardManager
     {
         public BoardManager() { }
+        private const int DEAD_CELL = 0;
+        private const int LIVE_CELL = 1;
 
         public void CalculateNextGridState(Board board)
         {
-            board.SetupBoard();
-
             int[,] newGrid = new int[board.Rows, board.Cols];
 
             for (int currentRow = 0; currentRow < board.Rows; currentRow++)
@@ -125,18 +125,12 @@ namespace ConwayGameOfLife.Business.Managers
 
         private static void SetDeadCell(int[,] newState, int i, int j, int numOfAliveNeighbors)
         {
-            if (numOfAliveNeighbors == 3)
-            {
-                newState[i, j] = 1; // The dead cell becomes alive
-            }
+            newState[i, j] = numOfAliveNeighbors == 3 ? LIVE_CELL : DEAD_CELL;
         }
 
         private static void SetLiveCell(int[,] newState, int i, int j, int numOfAliveNeighbors)
         {
-            if (numOfAliveNeighbors == 2 || numOfAliveNeighbors == 3)
-                newState[i, j] = 1; // The live cell stays alive
-            else
-                newState[i, j] = 0; // The live cell dies
+            newState[i, j] = (numOfAliveNeighbors == 2 || numOfAliveNeighbors == 3) ? LIVE_CELL : DEAD_CELL;
         }
 
         private bool IsNeighborWithinBoundsAndAlive(Board board, int neighborRow, int neighborCol)

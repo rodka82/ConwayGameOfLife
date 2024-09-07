@@ -12,6 +12,6 @@ namespace ConwayGameOfLife.Business.Interfaces
         Task<int> AddBoardAsync(string initialState);
         Task<string> CalculateNextStateAsync(int boardId);
         Task<string> GetStateXStepsAwayAsync(int boardId, int xSteps);
-        Task<string> GetFinalStateAsync(int boardId, int maxSteps);
+        Task<string> CalculateFinalStateAsync(int boardId, int maxSteps);
     }
 }

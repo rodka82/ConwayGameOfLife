@@ -142,7 +142,7 @@ namespace ConwayGameOfLife.Tests.Business.Services
                 });
 
                 var boardService = new BoardService(boardManagerMock.Object, boardRepositoryMock.Object);
-                var result = await boardService.GetFinalStateAsync(boardId, boardId);
+                var result = await boardService.CalculateFinalStateAsync(boardId, boardId);
 
                 Assert.Equal(board.State, result);
             }

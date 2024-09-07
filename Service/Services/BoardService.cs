@@ -24,23 +24,43 @@ namespace ConwayGameOfLife.Business.Services
 
         public async Task<string> CalculateNextStateAsync(int boardId)
         {
-            var board = await _boardRepository.GetBoardByIdAsync(boardId);
+            var board = await GetAndValidateBoardAsync(boardId);
+
+            if (string.IsNullOrEmpty(board.State))
+                throw new InvalidOperationException("Board state is invalid.");
+
+            board.SetupBoard();
             _boardManager.CalculateNextGridState(board);
             return board.State;
         }
 
         public async Task<string> GetStateXStepsAwayAsync(int boardId, int xSteps)
         {
-            var board = await _boardRepository.GetBoardByIdAsync(boardId);
+            var board = await GetAndValidateBoardAsync(boardId);
+
+            if (string.IsNullOrEmpty(board.State))
+                throw new InvalidOperationException("Board state is invalid.");
+
+            board.SetupBoard();
             _boardManager.CalculateStateXStepsAway(board, xSteps);
             return board.State;
         }
 
-        public async Task<string> GetFinalStateAsync(int boardId, int xSteps)
+        public async Task<string> CalculateFinalStateAsync(int boardId, int xSteps)
         {
-            var board = await _boardRepository.GetBoardByIdAsync(boardId);
+            var board = await GetAndValidateBoardAsync(boardId);
+
             _boardManager.CalculateFinalState(board, xSteps);
             return board.State;
+        }
+
+        private async Task<Board> GetAndValidateBoardAsync(int boardId)
+        {
+            var board = await _boardRepository.GetBoardByIdAsync(boardId);
+            if (board == null)
+                throw new KeyNotFoundException($"Board with ID {boardId} not found.");
+
+            return board;
         }
     }
 }
