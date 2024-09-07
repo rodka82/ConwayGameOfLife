@@ -29,7 +29,6 @@ namespace ConwayGameOfLife.Business.Services
             if (string.IsNullOrEmpty(board.State))
                 throw new InvalidOperationException("Board state is invalid.");
 
-            board.SetupBoard();
             _boardManager.CalculateNextGridState(board);
             return board.State;
         }
@@ -41,7 +40,6 @@ namespace ConwayGameOfLife.Business.Services
             if (string.IsNullOrEmpty(board.State))
                 throw new InvalidOperationException("Board state is invalid.");
 
-            board.SetupBoard();
             _boardManager.CalculateStateXStepsAway(board, xSteps);
             return board.State;
         }

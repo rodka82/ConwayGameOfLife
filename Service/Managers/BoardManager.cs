@@ -29,7 +29,7 @@ namespace ConwayGameOfLife.Business.Managers
             }
 
             string newState = SerializeGrid(newGrid);
-            board.SetupBoard(newState);
+            SetupBoard(newState);
 
         }
 
@@ -44,12 +44,12 @@ namespace ConwayGameOfLife.Business.Managers
             int[,] previousGrid = null;
             for (var i = 0; i < maxSteps; i++)
             {
-                var currentGrid = board.GetGrid();
+                var currentGrid = board.Grid();
 
                 if (previousGrid != null && GridsAreEqual(previousGrid, currentGrid))
                 {
                     var serializedState = SerializeGrid(currentGrid);
-                    board.SetupBoard(serializedState); 
+                    SetupBoard(board, serializedState); 
                     return; // Grid is Stable (concluded)
                 }
 
@@ -159,6 +159,43 @@ namespace ConwayGameOfLife.Business.Managers
             }
 
             return false;
+        }
+
+        public int[,] GetGrid(string state)
+        {
+            int[][]? jaggedArray = JsonSerializer.Deserialize<int[][]>(state);
+
+            if (jaggedArray == null || jaggedArray.Length == 0 || jaggedArray[0] == null)
+                throw new InvalidOperationException("Invalid board state: The grid cannot be null or empty.");
+
+            int[,] grid = ConvertJaggedArrayTo2D(jaggedArray);
+
+            return grid;
+        }
+
+        private int[,] ConvertJaggedArrayTo2D(int[][] jaggedArray)
+        {
+            int rows = jaggedArray.Length;
+            int cols = jaggedArray[0].Length;
+            int[,] grid = new int[rows, cols];
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    grid[i, j] = jaggedArray[i][j];
+                }
+            }
+
+            return grid;
+        }
+
+        public void SetupBoard(Board board, string? serializedInitialState = null)
+        {
+            board.State = serializedInitialState ?? board.State ?? throw new ArgumentNullException(nameof(serializedInitialState));
+            board.Grid = GetGrid(board.State);
+            board.Rows = board.Grid.GetLength(0);
+            board.Cols = board.Grid.GetLength(1);
         }
     }
 }

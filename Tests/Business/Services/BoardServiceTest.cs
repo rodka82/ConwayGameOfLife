@@ -66,7 +66,7 @@ namespace ConwayGameOfLife.Tests.Business.Services
                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                             ]";
-                    board.SetupBoard(serializedNextState);
+
                 });
 
                 var boardService = new BoardService(boardManagerMock.Object, boardRepositoryMock.Object);
@@ -102,7 +102,7 @@ namespace ConwayGameOfLife.Tests.Business.Services
                             [1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
                             [1, 0, 1, 0, 1, 0, 1, 0, 1, 0]
                             ]";
-                    board.SetupBoard(serializedNextState);
+
                 });
 
                 var boardService = new BoardService(boardManagerMock.Object, boardRepositoryMock.Object);
@@ -138,7 +138,7 @@ namespace ConwayGameOfLife.Tests.Business.Services
                             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
                             ]";
-                    board.SetupBoard(serializedNextState);
+
                 });
 
                 var boardService = new BoardService(boardManagerMock.Object, boardRepositoryMock.Object);
