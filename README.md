@@ -78,9 +78,9 @@ This project is divided into the following layers:
 
 ### Key Design Decisions
 
-- **Persistence:** I chose SQLite to ensure state persistence, so the game can be resumed after a restart or crash.
+- **Persistence:** I chose SQLite to ensure the first state persistence, so the game can be resumed after a restart or crash.
 - **Separation of Concerns:** The business logic is isolated, allowing for easier unit testing and maintainability.
-- **Resilience:** The API is designed to handle service restarts and retain board states, ensuring it is robust for real-world production use.
+- **Resilience:** The API is designed to handle service restarts and retain the first board state.
 
 ## How to Run
 
