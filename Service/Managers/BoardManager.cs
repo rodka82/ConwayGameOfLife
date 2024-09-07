@@ -12,6 +12,7 @@ namespace ConwayGameOfLife.Business.Managers
 
         public void CalculateNextGridState(Board board)
         {
+            SetupBoard(board);
             int[,] newGrid = new int[board.Rows, board.Cols];
 
             for (int currentRow = 0; currentRow < board.Rows; currentRow++)
@@ -44,7 +45,7 @@ namespace ConwayGameOfLife.Business.Managers
             int[,] previousGrid = null;
             for (var i = 0; i < maxSteps; i++)
             {
-                var currentGrid = board.Grid();
+                var currentGrid = board.Grid;
 
                 if (previousGrid != null && GridsAreEqual(previousGrid, currentGrid))
                 {

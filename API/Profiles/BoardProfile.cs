@@ -9,6 +9,10 @@ namespace ConwayGameOfLife.API.Profiles
         public BoardProfile()
         {
             CreateMap<Board, BoardDto>();
+
+            CreateMap<string, BoardDto>()
+                .ForMember(dest => dest.BoardState, opt => opt.MapFrom(src => src));
+
             CreateMap<int, BoardDto>()
                 .ForMember(dest => dest.BoardState, opt => opt.MapFrom(src => src));
 

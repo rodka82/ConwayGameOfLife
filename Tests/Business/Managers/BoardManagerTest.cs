@@ -18,6 +18,7 @@ namespace ConwayGameOfLife.Tests.Business.Managers
                 string initialState = @"[[1,0,0],[0,1,0],[0,0,1]]";
                 var board = new Board(initialState);
                 var boardManager = new BoardManager();
+                boardManager.SetupBoard(board);
 
                 boardManager.CalculateNextGridState(board);
 
@@ -35,6 +36,7 @@ namespace ConwayGameOfLife.Tests.Business.Managers
                 var board = new Board(initialState);
 
                 var boardManager = new BoardManager();
+                boardManager.SetupBoard(board);
                 int steps = 2;
 
                 boardManager.CalculateStateXStepsAway(board, steps);
@@ -54,6 +56,7 @@ namespace ConwayGameOfLife.Tests.Business.Managers
                 var board = new Board(initialState);
 
                 var boardManager = new BoardManager();
+                boardManager.SetupBoard(board);
                 int maxSteps = 10;
 
                 boardManager.CalculateFinalState(board, maxSteps);
@@ -69,6 +72,7 @@ namespace ConwayGameOfLife.Tests.Business.Managers
                 var board = new Board(initialState);
 
                 var boardManager = new BoardManager();
+                boardManager.SetupBoard(board);
                 int maxSteps = 5;
 
                 var exception = Assert.Throws<InvalidOperationException>(() => boardManager.CalculateFinalState(board, maxSteps));

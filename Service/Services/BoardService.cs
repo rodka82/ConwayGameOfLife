@@ -1,4 +1,5 @@
 ﻿using ConwayGameOfLife.Business.Interfaces;
+using ConwayGameOfLife.Business.Managers;
 using ConwayGameOfLife.Business.Services.Interfaces;
 using ConwayGameOfLife.Infra.Data.Interfaces;
 using Domain.Entities;
@@ -39,7 +40,7 @@ namespace ConwayGameOfLife.Business.Services
 
             if (string.IsNullOrEmpty(board.State))
                 throw new InvalidOperationException("Board state is invalid.");
-
+            
             _boardManager.CalculateStateXStepsAway(board, xSteps);
             return board.State;
         }

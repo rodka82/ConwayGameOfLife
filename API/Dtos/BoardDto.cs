@@ -2,6 +2,6 @@
 {
     public class BoardDto
     {
-        public string BoardState;
+        public string BoardState { get; set; }
     }
 }
