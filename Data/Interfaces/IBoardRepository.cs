@@ -11,6 +11,5 @@ namespace ConwayGameOfLife.Infra.Data.Interfaces
     {
         Task<int> AddBoardAsync(Board board);
         Task<Board> GetBoardByIdAsync(int boardId);
-        Task UpdateBoardAsync(Board board);
     }
 }
