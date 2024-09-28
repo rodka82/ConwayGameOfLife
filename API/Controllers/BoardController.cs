@@ -10,7 +10,7 @@ namespace ConwayGameOfLife.API.Controllers
     [Route("api/boards")]
     [Produces("application/json")]
     public class BoardController : ControllerBase
-    {
+    { 
         private readonly IBoardService _boardService;
         private readonly IMapper _mapper;
 
